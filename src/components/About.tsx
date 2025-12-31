@@ -1,0 +1,58 @@
+"use client";
+import React from 'react';
+import { Terminal, Globe, Code } from "lucide-react";
+
+export default function About() {
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { currentTarget: target } = e;
+    const rect = target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    target.style.setProperty("--mouse-x", `${x}px`);
+    target.style.setProperty("--mouse-y", `${y}px`);
+  };
+
+  return (
+    <section id="about" className="section container">
+      <div className="section-header">
+        <span className="section-label">/ IDENTITY</span>
+        <h2>The Developer</h2>
+      </div>
+
+      <div className="bento-grid">
+        <div className="block-card span-2" onMouseMove={handleMouseMove}>
+          <div className="card-spotlight" />
+          <Code size={40} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h3 className="block-title">Hybrid Engineer</h3>
+            <p className="block-desc" style={{ maxWidth: '600px' }}>
+              I exist in the grey area between hardware constraints and software possibilities.
+              Pursuing a double degree at <strong>SRM (Electronics)</strong> and <strong>IIT Madras (Data Science)</strong>.
+              I don't just write code; I architect systems.
+            </p>
+          </div>
+        </div>
+
+        <div className="block-card" onMouseMove={handleMouseMove}>
+          <div className="card-spotlight" />
+          <Globe size={32} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h3 className="block-title">Location</h3>
+            <p className="block-desc">Based in Chennai, India.</p>
+            <p className="block-desc" style={{ marginTop: '0.25rem' }}>Open to remote work.</p>
+          </div>
+        </div>
+
+        <div className="block-card span-3" onMouseMove={handleMouseMove} style={{ flexDirection: 'row', alignItems: 'center', gap: '3rem' }}>
+          <div className="card-spotlight" />
+          <Terminal size={32} color="#ccff00" style={{ position: 'relative', zIndex: 2 }} />
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h3 className="block-title" style={{ marginBottom: '0.25rem', fontSize: '1.25rem' }}>Core Stack</h3>
+            <p className="block-desc">Python, C++, PyTorch, Next.js, Docker, Kubernetes, AWS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
