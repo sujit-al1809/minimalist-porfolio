@@ -427,28 +427,31 @@ h2 {
 }
 
 /* HERO GRID LAYOUT */
+/* HERO GRID LAYOUT */
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-  gap: 4rem;
+  align-items: start;
+  /* Align to top for better control */
+  gap: 1rem;
   min-height: 80vh;
-  padding-top: 110px;
-  /* Reduced from 160px */
+  padding-top: 120px;
   padding-bottom: 4rem;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-visual {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 6rem;
+  /* Push down to align perfectly with Headline */
 }
 
 /* TILTED CARD GALLERY */
@@ -462,8 +465,8 @@ h2 {
 }
 
 .tilted-card {
-  width: 130px;
-  height: 190px;
+  width: 150px;
+  height: 210px;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
