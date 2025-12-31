@@ -5,10 +5,10 @@ import { ArrowRight, Star } from "lucide-react";
 
 // Placeholder photos matching the "rotated photo stack" vibe
 const photos = [
-  "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=1000&auto=format&fit=crop", // Coding/Tech
-  "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?q=80&w=1000&auto=format&fit=crop", // Speaking/Conference
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop", // Team/Work
-  "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1000&auto=format&fit=crop"  // Laptop/Coffee
+  "sujit_laware_2.jpg", // Coding/Tech
+  "sujit_al_2.jpg", // Speaking/Conference
+  "sujit_al_1.jpg", // Laptop/Coffee
+  "sujit_laware_1.png" // Team/Work
 ];
 
 export default function Hero() {
@@ -18,7 +18,7 @@ export default function Hero() {
       {/* LEFT COLUMN: CONTENT */}
       <div className="hero-content">
         {/* Status Pill */}
-        <div style={{ marginBottom: '2.5rem' }}>
+        <div style={{ marginBottom: '2.5rem', position: 'relative', zIndex: 10 }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -43,29 +43,32 @@ export default function Hero() {
 
         <h1 style={{
           fontFamily: "'Space Grotesk', sans-serif",
-          fontSize: 'clamp(3rem, 7vw, 5.5rem)',
+          fontSize: 'clamp(1.75rem, 6vw, 5.5rem)',
           fontWeight: 600,
-          lineHeight: 1.05,
+          lineHeight: 1.1,
           letterSpacing: '-0.02em',
           color: 'var(--text-main)',
           marginBottom: '1rem',
-          maxWidth: '900px'
+          maxWidth: '100%',
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word'
         }}>
-          I built. shipped. scaled fast <br />
+          I built. shipped. scaled fast
         </h1>
 
         <p style={{
-          fontSize: '1.15rem',
+          fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)',
           color: 'var(--text-muted)',
-          maxWidth: '580px',
+          maxWidth: '100%',
           lineHeight: 1.6,
-          marginBottom: '3rem'
+          marginBottom: '3rem',
+          wordWrap: 'break-word'
         }}>
           I'm Sujit, a multidisciplinary engineer specializing in
           High-Performance Web Apps, Edge Computing, and Cloud Infrastructure.
         </p>
 
-        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div className="hero-buttons" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
           <Link href="#projects" className="btn-shiny">
             View Work <ArrowRight size={18} />
           </Link>
@@ -77,14 +80,11 @@ export default function Hero() {
 
         {/* WORK DONE / TESTIMONIAL TICKER */}
         <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)', width: '100%' }}>
-          <div style={{
+          <div className="hero-ticker" style={{
             display: 'flex',
             gap: '3rem',
             alignItems: 'center',
-            overflow: 'scroll',
-            scrollbarWidth: 'none',
-            whiteSpace: 'nowrap',
-            opacity: 0.9
+            width: '100%',
           }}>
             <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', gap: '8px', alignItems: 'center' }}>
               <Star size={14} fill="currentColor" color="var(--accent)" /> 10+ Projects Delivered

@@ -58,15 +58,43 @@ export default function Navbar() {
             {/* DIVIDER */}
             <div style={{ width: '1px', height: '24px', background: 'var(--border-color)', margin: '0 0.5rem' }}></div>
 
-            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-              <button onClick={toggleTheme} className="btn-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-main)', padding: 0, display: 'flex' }}>
-                <ThemeIcon />
-              </button>
-
-              <a href="/resume.pdf" target="_blank" className="btn-small-shiny">
-                Resume <Download size={14} />
-              </a>
+            {/* AVAILABILITY BADGE */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '6px 12px',
+              background: 'rgba(204,255,0,0.1)',
+              border: '1px solid rgba(204,255,0,0.3)',
+              borderRadius: '100px',
+              fontSize: '0.85rem',
+              color: 'var(--text-main)',
+              fontWeight: 500
+            }}>
+              <span style={{
+                width: '6px',
+                height: '6px',
+                background: 'var(--accent)',
+                borderRadius: '50%',
+                boxShadow: '0 0 8px rgba(204, 255, 0, 0.6)',
+                animation: 'pulse 2s infinite'
+              }}></span>
+              Available
             </div>
+
+            {/* THEME TOGGLE */}
+            <button onClick={toggleTheme} style={{
+              background: 'transparent', border: 'none', cursor: 'pointer',
+              color: 'var(--text-muted)', padding: '8px', borderRadius: '8px',
+              display: 'flex', alignItems: 'center', transition: 'all 0.2s'
+            }}>
+              <ThemeIcon />
+            </button>
+
+            {/* RESUME BUTTON */}
+            <a href="/resume.pdf" download className="btn-small-shiny">
+              Resume <Download size={16} />
+            </a>
           </div>
 
           {/* MOBILE TOGGLE */}
