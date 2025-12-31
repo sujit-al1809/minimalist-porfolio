@@ -35,11 +35,11 @@ export default function Contact() {
         <h2>Let's Build Something</h2>
       </div>
 
-      <div className="bento-grid" style={{ alignItems: 'start' }}>
+      <div className="bento-grid contact-grid-mobile" style={{ alignItems: 'start' }}>
 
         {/* CONTACT INFO CARD */}
         <div
-          className="block-card"
+          className="block-card CONTACT_CARD"
           onMouseMove={handleMouseMove}
           style={{ minHeight: '400px' }}
         >
@@ -64,9 +64,9 @@ export default function Contact() {
 
         {/* CONTACT FORM */}
         <div
-          className="block-card span-2"
+          className="block-card span-2 contact-col-span-mobile"
           onMouseMove={handleMouseMove}
-          style={{ padding: '0' }} /* Remove padding for inner layout */
+          style={{ padding: '0' }}
         >
           <div className="card-spotlight" />
           <div style={{ position: 'relative', zIndex: 2, padding: '2.5rem', width: '100%' }}>
@@ -80,7 +80,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div className="contact-grid-mobile" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                   <div className="input-group">
                     <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Name</label>
                     <div style={{ position: 'relative' }}>
@@ -151,20 +151,7 @@ export default function Contact() {
             )}
           </div>
         </div>
-
       </div>
-
-      <style jsx>{`
-        .input-group input:focus, .input-group textarea:focus {
-           border-color: var(--accent) !important;
-           background: rgba(255,255,255,0.05) !important;
-        }
-        @media (max-width: 768px) {
-           .bento-grid { grid-template-columns: 1fr; }
-           .span-2 { grid-column: span 1; }
-           div[style*="gridTemplateColumns"] { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

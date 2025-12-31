@@ -541,9 +541,20 @@ h2 {
     transform: scale(0.9);
   }
 
+
   .tilted-card {
     width: 120px;
     height: 160px;
     margin: 0 -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid-mobile {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-col-span-mobile {
+    grid-column: span 1 !important;
   }
 }
