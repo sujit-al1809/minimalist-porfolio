@@ -29,10 +29,10 @@ export default function Navbar() {
           sujit.laware
         </Link>
 
-        <div style={{ display: 'flex', gap: '2rem' }}>
-          <Link href="#about" className="nav-link" style={{ fontSize: '0.9rem', color: '#888' }}>About</Link>
-          <Link href="#projects" className="nav-link" style={{ fontSize: '0.9rem', color: '#888' }}>Work</Link>
-          <Link href="#contact" className="nav-link" style={{ fontSize: '0.9rem', color: '#888' }}>Contact</Link>
+        <div style={{ display: 'flex', gap: '2.5rem' }}>
+          <Link href="#about" className="nav-link-item">About</Link>
+          <Link href="#projects" className="nav-link-item">Work</Link>
+          <Link href="#contact" className="nav-link-item">Contact</Link>
         </div>
       </div>
     </nav>

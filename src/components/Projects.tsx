@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Bot, Cpu, Layers } from "lucide-react";
+import { Bot, Cpu, Layers, ArrowRight } from "lucide-react";
 
 export default function Projects() {
 
@@ -42,7 +42,7 @@ export default function Projects() {
               <span className="tag-pill">GenAI</span>
               <span className="tag-pill">GCP</span>
             </div>
-            <span style={{ fontWeight: 600, fontSize: '0.95rem' }}>View Case Study &rarr;</span>
+            <span className="text-link-arrow">View Case Study <ArrowRight size={16} /></span>
           </div>
         </div>
 

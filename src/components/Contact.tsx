@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Mail } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 
 export default function Contact() {
 
@@ -21,23 +21,14 @@ export default function Contact() {
         style={{ textAlign: 'center', padding: '5rem 2rem', alignItems: 'center', justifyContent: 'center' }}
       >
         <div className="card-spotlight" />
-        <div style={{ position: 'relative', zIndex: 2 }}>
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>Ready to collaborate?</h2>
-          <p style={{ color: '#888', maxWidth: '500px', marginBottom: '3rem', fontSize: '1.2rem', margin: '0 auto 3rem auto' }}>
+          <p style={{ color: '#888', maxWidth: '500px', marginBottom: '3rem', fontSize: '1.2rem' }}>
             I'm currently looking for new opportunities in AI Engineering and Full Stack Development.
           </p>
 
-          <a href="mailto:contact@sujit.dev" className="btn-primary" style={{
-            background: '#ccff00',
-            color: '#000',
-            padding: '1rem 2.5rem',
-            borderRadius: '100px',
-            fontWeight: 700,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px'
-          }}>
-            <Mail size={20} /> Get in Touch
+          <a href="mailto:contact@sujit.dev" className="btn-shiny accent">
+            <Mail size={20} /> Get in Touch <ArrowRight size={18} />
           </a>
         </div>
       </div>

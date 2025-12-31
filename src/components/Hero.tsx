@@ -6,11 +6,11 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section className="container" style={{
-      minHeight: '90vh',
+      minHeight: '85vh',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      paddingTop: '64px' /* Offset for fixed navbar */
+      paddingTop: '64px'
     }}>
 
       {/* Status Pill */}
@@ -63,28 +63,12 @@ export default function Hero() {
       </p>
 
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-        <Link href="#projects" style={{
-          background: '#fff',
-          color: '#000',
-          padding: '1rem 2rem',
-          borderRadius: '100px',
-          fontWeight: 600,
-          fontSize: '1rem',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          transition: 'transform 0.2s'
-        }}>
+        <Link href="#projects" className="btn-shiny">
           View Work <ArrowRight size={18} />
         </Link>
 
-        <Link href="#contact" style={{
-          color: '#fff',
-          padding: '1rem 2rem',
-          fontSize: '1rem',
-          fontWeight: 500,
-        }}>
-          Contact Me
+        <Link href="#contact" className="text-link-arrow">
+          Contact Me <ArrowRight size={16} />
         </Link>
       </div>
     </section>
