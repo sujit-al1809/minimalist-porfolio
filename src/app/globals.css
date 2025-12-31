@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  /* COLORS */
+  /* DARK THEME (DEFAULT) */
   --bg-dark: #050505;
   --bg-card: #0a0a0a;
   --bg-card-hover: #111111;
@@ -10,18 +10,36 @@
   --text-muted: #888888;
   --accent: #ccff00;
   /* Acid Green */
-
   --border-color: #222;
+  --navbar-bg: rgba(5, 5, 5, 0.6);
+  --spotlight-color: rgba(255, 255, 255, 0.06);
+
   --radius-lg: 24px;
   --radius-pill: 100px;
 
-  /* FONTS */
   --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  /* SPACING */
   --section-spacing: 8rem;
   --container-width: 1100px;
+}
+
+[data-theme='light'] {
+  --bg-dark: #f4f4f0;
+  /* Warm Paper */
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfcfc;
+  --text-main: #1a1a1a;
+  --text-muted: #666666;
+  --accent: #FF5A5F;
+  /* Vibrant Red-Orange for Light Mode or keep Green? Let's stick to Acid or maybe deep blue. User likes contrast. Let's keep Acid Green but darker or swap to a high contrast color. Let's try sharp black + acid green or just Orange. Let's stick to the Green accent for identity, but maybe darker text. */
+  --accent: #6b8a00;
+  /* Darker Green for visibility on light? Or keep neon. Let's keep neon for pop against white if styled right, or switch to black accent. Let's go with a Sharp Blue or Orange. Actually user liked "Paperfolio". Let's use a deep black accent. */
+  --accent: #000000;
+  /* Minimalist Black Accent in light mode often looks best. */
+  --border-color: #e5e5e5;
+  --navbar-bg: rgba(244, 244, 240, 0.8);
+  --spotlight-color: rgba(0, 0, 0, 0.03);
 }
 
 * {
@@ -37,12 +55,13 @@ a {
 
 ::selection {
   background: var(--accent);
-  color: #000;
+  color: var(--bg-dark);
 }
 
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-dark);
+  transition: background-color 0.3s;
 }
 
 body {
@@ -51,9 +70,10 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* SUBTLE GRID BACKGROUND */
+/* GRID BACKGROUND */
 body::before {
   content: "";
   position: fixed;
@@ -62,15 +82,15 @@ body::before {
   right: 0;
   bottom: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--border-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
   background-size: 60px 60px;
+  opacity: 0.1;
   z-index: -1;
   pointer-events: none;
   mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
-/* CONTAINER */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -103,14 +123,14 @@ h2 {
   font-size: 2.5rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--text-main);
 }
 
 /* BUTTONS */
 .btn-shiny {
   position: relative;
   background: var(--text-main);
-  color: #000;
+  color: var(--bg-dark);
   padding: 1rem 2rem;
   border-radius: 100px;
   font-weight: 700;
@@ -140,7 +160,7 @@ h2 {
 
 .btn-shiny:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(128, 128, 128, 0.4);
 }
 
 .btn-shiny:hover::before {
@@ -149,17 +169,15 @@ h2 {
 
 .btn-shiny.accent {
   background: var(--accent);
-  color: #000;
+  color: #fff;
 }
 
-.btn-shiny.accent:hover {
-  box-shadow: 0 0 25px rgba(204, 255, 0, 0.4);
-}
+/* In light mode accent is black, text white. In dark accent is green. */
 
 .btn-small-shiny {
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(128, 128, 128, 0.1);
+  color: var(--text-main);
   padding: 0.5rem 1rem;
   border-radius: 100px;
   font-weight: 600;
@@ -169,30 +187,29 @@ h2 {
   gap: 8px;
   overflow: hidden;
   transition: all 0.2s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .btn-small-shiny:hover {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+  background: var(--text-main);
+  color: var(--bg-dark);
 }
 
-/* NAV LINKS (Clean, No Underline) */
+/* LINKS */
 .nav-link-item {
   position: relative;
   font-size: 0.9rem;
-  color: #888;
+  color: var(--text-muted);
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .nav-link-item:hover {
-  color: #fff;
+  color: var(--text-main);
 }
 
 .text-link-arrow {
-  color: #fff;
+  color: var(--text-main);
   font-weight: 600;
   font-size: 0.95rem;
   display: inline-flex;
@@ -230,7 +247,6 @@ h2 {
   animation: scalingFade 0.6s ease-out forwards;
 }
 
-/* SPOTLIGHT OVERLAY */
 .card-spotlight {
   position: absolute;
   top: 0;
@@ -239,9 +255,7 @@ h2 {
   bottom: 0;
   border-radius: var(--radius-lg);
   pointer-events: none;
-  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(255, 255, 255, 0.06),
-      transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 40%);
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s;
@@ -270,8 +284,8 @@ h2 {
 .block-card:hover {
   transform: translateY(-8px) scale(1.02);
   background: var(--bg-card-hover);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  border-color: var(--text-muted);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
@@ -297,7 +311,7 @@ h2 {
 .block-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
@@ -323,24 +337,22 @@ h2 {
   font-size: 0.75rem;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.05);
-  color: #ccc;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(128, 128, 128, 0.1);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
   transition: all 0.2s;
 }
 
 .tag-pill:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: var(--bg-card-hover);
+  border-color: var(--text-main);
+  color: var(--text-main);
 }
 
-/* SKILL PILLS (Enhanced) */
 .skill-pill {
-  background: rgba(204, 255, 0, 0.05);
-  /* Slight accent tint */
-  border: 1px solid rgba(204, 255, 0, 0.1);
-  color: #e5e5e5;
+  background: rgba(128, 128, 128, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   padding: 0.6rem 1.2rem;
   border-radius: 100px;
   font-size: 0.9rem;
@@ -352,9 +364,9 @@ h2 {
 }
 
 .skill-pill:hover {
-  background: rgba(204, 255, 0, 0.15);
-  border-color: rgba(204, 255, 0, 0.4);
-  color: #fff;
+  background: var(--accent);
+  color: var(--bg-dark);
+  border-color: var(--accent);
   transform: translateY(-2px);
 }
 
@@ -380,4 +392,25 @@ h2 {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+}
+
+/* MOBILE NAVBAR UTILS */
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateY(-150%);
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
 }
