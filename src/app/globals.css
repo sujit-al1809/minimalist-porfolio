@@ -65,7 +65,7 @@ body::before {
   mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
-/* LAYOUT UTILITIES */
+/* CONTAINER */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -101,7 +101,7 @@ h2 {
   color: #fff;
 }
 
-/* ANIMATED BUTTONS */
+/* BUTTONS */
 .btn-shiny {
   position: relative;
   background: var(--text-main);
@@ -151,55 +151,39 @@ h2 {
   box-shadow: 0 0 25px rgba(204, 255, 0, 0.4);
 }
 
-.btn-glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.btn-small-shiny {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   border-radius: 100px;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.85rem;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
+  gap: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-glass:hover {
+.btn-small-shiny:hover {
   background: #fff;
   color: #000;
-  transform: translateY(-2px);
+  border-color: #fff;
 }
 
-/* ANIMATED LINKS */
+/* NAV LINKS (Clean, No Underline) */
 .nav-link-item {
   position: relative;
   font-size: 0.9rem;
   color: #888;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.2s;
 }
 
 .nav-link-item:hover {
   color: #fff;
-}
-
-.nav-link-item::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--accent);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.nav-link-item:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
 }
 
 .text-link-arrow {
@@ -217,7 +201,7 @@ h2 {
   color: var(--accent);
 }
 
-/* BENTO GRID SYSTEM */
+/* BENTO GRID */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -241,7 +225,7 @@ h2 {
   animation: scalingFade 0.6s ease-out forwards;
 }
 
-/* SPOTLIGHT OVERLAY for Cards */
+/* SPOTLIGHT OVERLAY */
 .card-spotlight {
   position: absolute;
   top: 0;
@@ -262,7 +246,6 @@ h2 {
   opacity: 1;
 }
 
-/* Stagger Animations */
 .bento-grid>*:nth-child(1) {
   animation-delay: 0.1s;
 }
@@ -287,7 +270,6 @@ h2 {
   z-index: 2;
 }
 
-/* Grid Spans */
 .span-2 {
   grid-column: span 2;
 }
@@ -307,7 +289,6 @@ h2 {
   }
 }
 
-/* TYPOGRAPHY IN CARDS */
 .block-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -349,7 +330,29 @@ h2 {
   color: #fff;
 }
 
-/* ANIMATIONS */
+/* SKILL PILLS (Enhanced) */
+.skill-pill {
+  background: rgba(204, 255, 0, 0.05);
+  /* Slight accent tint */
+  border: 1px solid rgba(204, 255, 0, 0.1);
+  color: #e5e5e5;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.skill-pill:hover {
+  background: rgba(204, 255, 0, 0.15);
+  border-color: rgba(204, 255, 0, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;

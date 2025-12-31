@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
+import { Download } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -29,10 +30,14 @@ export default function Navbar() {
           sujit.laware
         </Link>
 
-        <div style={{ display: 'flex', gap: '2.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
           <Link href="#about" className="nav-link-item">About</Link>
           <Link href="#projects" className="nav-link-item">Work</Link>
           <Link href="#contact" className="nav-link-item">Contact</Link>
+
+          <a href="/resume.pdf" target="_blank" className="btn-small-shiny">
+            Resume <Download size={14} />
+          </a>
         </div>
       </div>
     </nav>
