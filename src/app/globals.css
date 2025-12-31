@@ -97,12 +97,15 @@ body::before {
   padding: 0 2rem;
 }
 
+/* SECTIONS */
 .section {
-  padding: var(--section-spacing) 0;
+  padding: 2.5rem 0;
+  /* Significantly reduced for tight spacing */
 }
 
 .section-header {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+  /* Minimal gap */
   opacity: 0;
   animation: fadeUp 0.8s ease-out forwards;
 }
@@ -114,14 +117,15 @@ body::before {
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
 }
 
-h2 {
+.section-header h2 {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 600;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-main);
 }
@@ -228,7 +232,38 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  width: 100%;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .span-2,
+  .span-3 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .span-2,
+  .span-3 {
+    grid-column: span 1;
+  }
 }
 
 .block-card {
@@ -427,31 +462,44 @@ h2 {
 }
 
 /* HERO GRID LAYOUT */
-/* HERO GRID LAYOUT */
 .hero-wrapper {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  align-items: start;
-  /* Align to top for better control */
-  gap: 1rem;
+  align-items: center;
+  gap: 0;
   min-height: 80vh;
-  padding-top: 120px;
+  padding-top: 90px;
+  /* Reduced to show availability badge */
   padding-bottom: 4rem;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .hero-visual {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  margin-top: 6rem;
-  /* Push down to align perfectly with Headline */
+  align-items: center;
+  margin-top: -3rem;
+  margin-left: -2rem;
+}
+
+/* Ensure uniform container padding */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  /* Uniform left/right padding */
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
 /* TILTED CARD GALLERY */
@@ -460,13 +508,14 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 0px;
-  /* Slight overlap handled by transforms */
   perspective: 1000px;
 }
 
 .tilted-card {
-  width: 150px;
-  height: 210px;
+  width: 160px;
+  /* Reduced from 180px */
+  height: 220px;
+  /* Reduced from 250px */
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
@@ -474,8 +523,8 @@ h2 {
   position: relative;
   background: var(--bg-card);
   border: 4px solid var(--bg-card);
-  margin: 0 -25px;
-  /* Tighter overlap to fit screen */
+  margin: 0 -28px;
+  /* Adjusted overlap */
 }
 
 .tilted-card img {
@@ -515,40 +564,88 @@ h2 {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
   border-color: var(--accent);
   margin: 0 10px;
-  /* Expand spacing on hover */
 }
 
 .tilted-card:hover img {
   filter: grayscale(0%);
 }
 
+/* MOBILE RESPONSIVENESS */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 900px) {
   .hero-wrapper {
     grid-template-columns: 1fr;
-    padding-top: 90px;
-    text-align: center;
-    gap: 3rem;
+    padding-top: 80px;
+    text-align: left;
+    gap: 2rem;
+    min-height: auto;
   }
 
   .hero-content {
-    align-items: center;
+    align-items: flex-start;
+    padding: 0;
   }
 
   .hero-visual {
     display: flex;
-    margin-bottom: 2rem;
     justify-content: center;
+    margin: 0 auto;
+    margin-left: 0;
+    margin-top: 0;
   }
 
   .gallery-container {
-    transform: scale(0.9);
+    transform: scale(0.7);
   }
-
 
   .tilted-card {
     width: 120px;
-    height: 160px;
-    margin: 0 -10px;
+    height: 170px;
+    margin: 0 -20px;
+  }
+
+  /* Mobile-friendly buttons */
+  .btn-shiny,
+  .btn-small-shiny {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Adjust section spacing on mobile */
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Bento grid mobile */
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  .span-2,
+  .span-3 {
+    grid-column: span 1 !important;
+  }
+
+  /* Block cards mobile */
+  .block-card {
+    padding: 1.5rem;
+  }
+
+  /* Navbar mobile adjustments */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  /* Hero text adjustments */
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
   }
 }
 
@@ -559,5 +656,40 @@ h2 {
 
   .contact-col-span-mobile {
     grid-column: span 1 !important;
+  }
+
+  /* Hero text sizing */
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+  }
+
+  /* Skills section mobile */
+  .skill-pill {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-wrapper {
+    padding-top: 60px;
+  }
+
+  .gallery-container {
+    transform: scale(0.6);
+  }
+
+  .tilted-card {
+    width: 110px;
+    height: 150px;
+    margin: 0 -15px;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .block-card {
+    padding: 1.5rem 1rem;
   }
 }
