@@ -24,10 +24,8 @@ export default function Navbar() {
     localStorage.setItem('theme', newTheme);
   };
 
-  // Prevent hydration mismatch by returning null until mounted if needed, 
-  // or simply ensuring safe rendering for the theme icon.
   const ThemeIcon = () => {
-    if (!mounted) return null; // or a placeholder
+    if (!mounted) return null;
     return theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />;
   };
 
@@ -50,18 +48,25 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-          <div className="desktop-menu" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
-            <Link href="#about" className="nav-link-item">About</Link>
-            <Link href="#projects" className="nav-link-item">Work</Link>
-            <Link href="#contact" className="nav-link-item">Contact</Link>
+          <div className="desktop-menu" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+            <div style={{ display: 'flex', gap: '2rem' }}>
+              <Link href="#about" className="nav-link-item">About</Link>
+              <Link href="#projects" className="nav-link-item">Work</Link>
+              <Link href="#contact" className="nav-link-item">Contact</Link>
+            </div>
 
-            <button onClick={toggleTheme} className="btn-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-main)' }}>
-              <ThemeIcon />
-            </button>
+            {/* DIVIDER */}
+            <div style={{ width: '1px', height: '24px', background: 'var(--border-color)', margin: '0 0.5rem' }}></div>
 
-            <a href="/resume.pdf" target="_blank" className="btn-small-shiny">
-              Resume <Download size={14} />
-            </a>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+              <button onClick={toggleTheme} className="btn-icon" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-main)', padding: 0, display: 'flex' }}>
+                <ThemeIcon />
+              </button>
+
+              <a href="/resume.pdf" target="_blank" className="btn-small-shiny">
+                Resume <Download size={14} />
+              </a>
+            </div>
           </div>
 
           {/* MOBILE TOGGLE */}
@@ -85,13 +90,6 @@ export default function Navbar() {
           Resume <Download size={18} />
         </a>
       </div>
-
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .desktop-menu { display: none !important; }
-          .mobile-toggle { display: flex !important; }
-        }
-      `}</style>
     </>
   );
 }
