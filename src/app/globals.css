@@ -91,6 +91,19 @@ body::before {
   mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 
+@keyframes ping {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -99,8 +112,8 @@ body::before {
 
 /* SECTIONS */
 .section {
-  padding: 2.5rem 0;
-  /* Significantly reduced for tight spacing */
+  padding: 6rem 0 4rem 0;
+  /* More space above sections, normal space below */
 }
 
 .section-header {
@@ -117,7 +130,9 @@ body::before {
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  /* Increased from 0.75rem for better gap */
   text-transform: uppercase;
 }
 
@@ -519,7 +534,7 @@ img {
   gap: 2rem;
   /* Added gap to separate columns */
   min-height: 80vh;
-  padding-top: 100px;
+  padding-top: 130px;
   /* Increased to ensure badge is visible */
   padding-bottom: 4rem;
   position: relative;
@@ -635,34 +650,18 @@ img {
   filter: grayscale(0%);
 }
 
-/* Hero Ticker Defaults */
-.hero-ticker {
-  overflow-x: auto;
-  scrollbar-width: none;
-  white-space: nowrap;
-  opacity: 0.9;
-}
-
-.hero-ticker::-webkit-scrollbar {
-  display: none;
+/* Hero Badge Visibility */
+.hero-badge-container {
+  display: block;
+  /* Restored for desktop */
+  margin-bottom: 2rem;
 }
 
 /* MOBILE RESPONSIVENESS - Mobile First Approach */
 
 /* Small phones (320px - 480px) */
 @media (max-width: 480px) {
-  .hero-ticker {
-    flex-wrap: wrap !important;
-    gap: 1rem !important;
-    white-space: normal !important;
-    justify-content: flex-start !important;
-  }
-
-  .hero-ticker span {
-    font-size: 0.8rem !important;
-    width: 100%;
-    /* Stack items for better visibility */
-  }
+  /* Ticker removed */
 
   .container {
     padding: 0 1.25rem !important;
@@ -670,23 +669,33 @@ img {
   }
 
   .hero-wrapper {
-    grid-template-columns: 1fr !important;
-    padding-top: 85px !important;
-    padding-bottom: 2rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-top: 100px !important;
+    /* Increased from 75px to clear navbar + badge */
+    padding-bottom: 1.5rem !important;
     gap: 1.5rem !important;
+    overflow: visible !important;
+    /* Ensure nothing clips */
   }
 
   .hero-visual {
     display: flex !important;
-    /* RESTORED: Show images on mobile */
     justify-content: center !important;
-    margin-top: 1rem !important;
-    margin-bottom: 2rem !important;
+    order: -1 !important;
+    /* Move images to top */
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
+    padding-left: 0 !important;
   }
 
   .gallery-container {
-    transform: scale(0.55) !important;
-    /* Scale down to fit width */
+    transform: scale(0.65) !important;
+    /* Slightly larger since it's at top */
+  }
+
+  .hero-content {
+    order: 2 !important;
   }
 
   h1 {
@@ -720,11 +729,22 @@ img {
     /* Left align everything */
   }
 
+  .hero-wrapper {
+    text-align: center !important;
+    /* Center text */
+  }
+
+  .hero-content {
+    align-items: center !important;
+    /* Center flex items */
+  }
+
   .hero-buttons {
     flex-direction: column !important;
-    align-items: stretch !important;
-    /* Stretch button but not link? No, let's control individually */
+    align-items: center !important;
+    /* Center buttons */
     gap: 1rem !important;
+    width: 100%;
   }
 
   .hero-buttons .btn-shiny {
@@ -732,17 +752,32 @@ img {
     justify-content: center !important;
   }
 
-  .hero-buttons .text-link-arrow {
-    width: auto !important;
-    align-self: flex-start !important;
+  /* Center the status pill if possible, or leave as is? Usually sits better centered if text is centered */
+  /* Show and center the status pill on mobile (hidden on desktop) */
+  .hero-badge-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
   }
 
   /* Remove generic styles that might conflict */
   /* Removed generic rule */
 
 
+  /* Center all section headers on mobile */
   .section-header {
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ensure the label logic (if flex) also centers */
+  .section-label {
+    margin-bottom: 0.5rem;
+    display: inline-block;
   }
 
   .block-card {
@@ -767,19 +802,30 @@ img {
   }
 
   .hero-wrapper {
-    grid-template-columns: 1fr !important;
-    padding-top: 90px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-top: 120px !important;
+    /* Increased to 120px to fix cutoff */
     gap: 2rem !important;
+    overflow: visible !important;
   }
 
   .hero-visual {
     display: flex !important;
     justify-content: center !important;
     margin: 0 !important;
+    order: -1 !important;
+    /* Move images to top */
+    margin-bottom: 2rem !important;
+    padding-left: 0 !important;
   }
 
   .gallery-container {
-    transform: scale(0.6) !important;
+    transform: scale(0.75) !important;
+  }
+
+  .hero-content {
+    order: 2 !important;
   }
 
   h1 {

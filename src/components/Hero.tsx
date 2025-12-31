@@ -18,7 +18,7 @@ export default function Hero() {
       {/* LEFT COLUMN: CONTENT */}
       <div className="hero-content">
         {/* Status Pill */}
-        <div style={{ marginBottom: '2.5rem', position: 'relative', zIndex: 10 }}>
+        <div className="hero-badge-container" style={{ marginBottom: '0rem' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -78,28 +78,7 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* WORK DONE / TESTIMONIAL TICKER */}
-        <div style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)', width: '100%' }}>
-          <div className="hero-ticker" style={{
-            display: 'flex',
-            gap: '3rem',
-            alignItems: 'center',
-            width: '100%',
-          }}>
-            <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <Star size={14} fill="currentColor" color="var(--accent)" /> 10+ Projects Delivered
-            </span>
-            <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <img src="https://avatar.vercel.sh/leerob" style={{ width: '24px', height: '24px', borderRadius: '50%' }} alt="" /> Trusted by Startups
-            </span>
-            <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <Star size={14} fill="currentColor" color="var(--accent)" /> 5-Star Client Reviews
-            </span>
-            <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <img src="https://avatar.vercel.sh/rauchg" style={{ width: '24px', height: '24px', borderRadius: '50%' }} alt="" /> Full Stack Excellence
-            </span>
-          </div>
-        </div>
+        {/* Ticker Removed as requested */}
       </div>
 
       {/* RIGHT COLUMN: FANNED GALLERY */}

@@ -106,13 +106,65 @@ export default function About() {
           </div>
         </div>
 
-        <div className="block-card" onMouseMove={handleMouseMove}>
+        <div className="block-card" onMouseMove={handleMouseMove} style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
           <div className="card-spotlight" />
-          <Globe size={32} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <h3 className="block-title">Location</h3>
-            <p className="block-desc">Based in Chennai, India.</p>
-            <p className="block-desc" style={{ marginTop: '0.25rem' }}>Open to remote work.</p>
+
+          {/* Google Maps Embed */}
+          <div style={{
+            position: 'relative',
+            width: '100%',
+            height: '100%',
+            minHeight: '300px',
+            zIndex: 2
+          }}>
+            <iframe
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '300px', filter: 'grayscale(20%) contrast(1.1)' }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089943312!2d80.06892495!3d13.0826802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              title="Chennai Location"
+            />
+
+            {/* Compact Info Overlay */}
+            <div style={{
+              position: 'absolute',
+              bottom: '1rem',
+              left: '1rem',
+              background: 'rgba(0,0,0,0.92)',
+              padding: '1rem 1.25rem',
+              borderRadius: '12px',
+              zIndex: 3,
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(204, 255, 0, 0.3)',
+              maxWidth: '220px',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
+            }}>
+              <p style={{
+                margin: '0 0 0.5rem 0',
+                fontSize: '0.75rem',
+                color: 'rgba(255,255,255,0.6)',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}>Currently at</p>
+              <p style={{
+                margin: 0,
+                fontSize: '1rem',
+                color: '#ccff00',
+                fontWeight: 700
+              }}>Chennai, India</p>
+              <p style={{
+                marginTop: '0.35rem',
+                fontSize: '0.75rem',
+                color: 'rgba(255,255,255,0.7)',
+                fontWeight: 500
+              }}>
+                Open to remote work
+              </p>
+            </div>
           </div>
         </div>
 
