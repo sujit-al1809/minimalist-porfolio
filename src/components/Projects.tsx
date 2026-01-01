@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { Bot, Cpu, Layers, ArrowRight, Zap, Globe, Database } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -66,18 +67,28 @@ export default function Projects() {
 
   return (
     <section id="projects" className="section container">
-      <div className="section-header">
+      <motion.div
+        className="section-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-label">/ SELECTED WORKS</span>
         <h2>Engineering Portfolio</h2>
-      </div>
+      </motion.div>
 
       <div className="bento-grid">
         {projects.map((project, idx) => (
-          <div
+          <motion.div
             key={idx}
             className="block-card"
             onMouseMove={handleMouseMove}
             style={{ display: 'flex', flexDirection: 'column', minHeight: '400px' }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
             <div className="card-spotlight" />
 
@@ -144,7 +155,7 @@ export default function Projects() {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

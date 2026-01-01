@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { Terminal, Globe, Code, Box } from "lucide-react";
+import { motion } from "framer-motion";
 
 /* 
   Using simpleicons.org for official logos. 
@@ -87,13 +88,26 @@ export default function About() {
 
   return (
     <section id="about" className="section container">
-      <div className="section-header">
+      <motion.div
+        className="section-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-label">/ IDENTITY</span>
         <h2>The Developer</h2>
-      </div>
+      </motion.div>
 
       <div className="bento-grid">
-        <div className="block-card span-2" onMouseMove={handleMouseMove}>
+        <motion.div
+          className="block-card span-2"
+          onMouseMove={handleMouseMove}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <div className="card-spotlight" />
           <Code size={40} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
           <div style={{ position: 'relative', zIndex: 2 }}>
@@ -104,9 +118,17 @@ export default function About() {
               I don't just write code; I architect systems.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="block-card" onMouseMove={handleMouseMove} style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
+        <motion.div
+          className="block-card"
+          onMouseMove={handleMouseMove}
+          style={{ padding: 0, overflow: 'hidden', position: 'relative' }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="card-spotlight" />
 
           {/* Google Maps Embed */}
@@ -166,9 +188,17 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="block-card span-3" onMouseMove={handleMouseMove} style={{ display: 'block' }}>
+        <motion.div
+          className="block-card span-3"
+          onMouseMove={handleMouseMove}
+          style={{ display: 'block' }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <div className="card-spotlight" />
           <div style={{ position: 'relative', zIndex: 2 }}>
             <h3 className="block-title" style={{ marginBottom: '2rem' }}>Tech Arsenal</h3>
@@ -219,7 +249,7 @@ export default function About() {
 
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
