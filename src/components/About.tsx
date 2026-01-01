@@ -1,79 +1,30 @@
 "use client";
 import React from 'react';
-import { Terminal, Globe, Code, Box } from "lucide-react";
+import { Terminal, Globe, Code, Box, Cpu } from "lucide-react";
 import { motion } from "framer-motion";
-
-/* 
-  Using simpleicons.org for official logos. 
-  slugs are generally lowercase name. 
-  Some checks: 
-  - c -> c 
-  - c++ -> cplusplus
-  - next.js -> nextdotjs
-  - scikit -> scikitlearn
-  - pytorch -> pytorch
-  - nodejs -> nodedotjs
-  - vue js -> vuedotjs
-  - amazonwebservices -> amazonwebservices ? aws -> aws
-  - googlecloud -> googlecloud
-*/
 
 const skillCategories = [
   {
-    title: "Languages",
-    items: [
-      { name: "Python", slug: "python" },
-      { name: "C", slug: "c" },
-      { name: "JavaScript", slug: "javascript" },
-      { name: "SQL", slug: "mysql" }, // Using generic or MySQL
-      { name: "Bash", slug: "gnubash" },
-      { name: "Java", slug: "openjdk" } // or java
-    ]
+    title: "Core Stack",
+    icon: Code,
+    items: ["Python", "JavaScript", "TypeScript", "C++", "SQL"]
   },
   {
-    title: "Frameworks",
-    items: [
-      { name: "Scikit", slug: "scikitlearn" },
-      { name: "FastAPI", slug: "fastapi" },
-      { name: "Next.js", slug: "nextdotjs" },
-      { name: "PyTorch", slug: "pytorch" },
-      { name: "Django", slug: "django" },
-      { name: "Flask", slug: "flask" },
-      { name: "Node.js", slug: "nodedotjs" },
-      { name: "React", slug: "react" },
-      { name: "Vue.js", slug: "vuedotjs" }
-    ]
+    title: "AI & ML",
+    icon: Cpu,
+    items: ["PyTorch", "TensorFlow", "Scikit-Learn", "OpenCV", "LangChain"]
   },
   {
-    title: "Tools",
-    items: [
-      { name: "Kubernetes", slug: "kubernetes" },
-      { name: "Docker", slug: "docker" },
-      { name: "Git", slug: "git" },
-      { name: "PostgreSQL", slug: "postgresql" },
-      { name: "MySQL", slug: "mysql" },
-      { name: "SQLite", slug: "sqlite" },
-      { name: "GitHub Actions", slug: "githubactions" },
-      { name: "Jenkins", slug: "jenkins" },
-      { name: "GitLab", slug: "gitlab" }
-    ]
+    title: "Full Stack",
+    icon: Globe,
+    items: ["Next.js", "React", "Node.js", "FastAPI", "PostgreSQL"]
   },
   {
-    title: "Platforms",
-    items: [
-      { name: "Linux", slug: "linux" },
-      { name: "AWS", slug: "amazonaws" },
-      { name: "GCP", slug: "googlecloud" },
-      { name: "Arduino", slug: "arduino" },
-      { name: "Raspberry Pi", slug: "raspberrypi" },
-      { name: "Streamlit", slug: "streamlit" },
-      { name: "Hugging Face", slug: "huggingface" }
-    ]
+    title: "DevOps & Cloud",
+    icon: Box,
+    items: ["Docker", "Kubernetes", "AWS", "GCP", "Git"]
   }
 ];
-
-// Soft skills don't have official tech logos usually, we'll use text or generic icons
-const softSkills = ["Leadership", "Event Management", "Writing", "Public Speaking", "Time Management"];
 
 export default function About() {
 
@@ -109,13 +60,14 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="card-spotlight" />
-          <Code size={40} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
+          <Terminal size={40} color="#ccff00" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 2 }} />
           <div style={{ position: 'relative', zIndex: 2 }}>
             <h3 className="block-title">Hybrid Engineer</h3>
-            <p className="block-desc" style={{ maxWidth: '600px' }}>
-              I exist in the grey area between hardware constraints and software possibilities.
+            <p className="block-desc" style={{ maxWidth: '600px', fontSize: '1.05rem', lineHeight: '1.7' }}>
+              I exist in the grey area between <span style={{ color: 'var(--text-main)', borderBottom: '1px dashed var(--accent)' }}>hardware constraints</span> and <span style={{ color: 'var(--text-main)', borderBottom: '1px dashed var(--accent)' }}>software possibilities</span>.
+              <br /><br />
               Pursuing a double degree at <strong>SRM (Electronics)</strong> and <strong>IIT Madras (Data Science)</strong>.
-              I don't just write code; I architect systems.
+              I don't just write code; I architect systems that bridge the physical and digital worlds.
             </p>
           </div>
         </motion.div>
@@ -123,7 +75,7 @@ export default function About() {
         <motion.div
           className="block-card"
           onMouseMove={handleMouseMove}
-          style={{ padding: 0, overflow: 'hidden', position: 'relative' }}
+          style={{ padding: 0, overflow: 'hidden', position: 'relative', minHeight: '300px' }}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -131,61 +83,48 @@ export default function About() {
         >
           <div className="card-spotlight" />
 
-          {/* Google Maps Embed */}
+          {/* Map Overlay for Acid Effect */}
+          <div style={{
+            position: 'absolute',
+            top: 0, left: 0, width: '100%', height: '100%',
+            background: 'linear-gradient(135deg, rgba(204, 255, 0, 0.1), rgba(0,0,0,0.6))',
+            pointerEvents: 'none',
+            zIndex: 2,
+            mixBlendMode: 'overlay'
+          }}></div>
+
           <div style={{
             position: 'relative',
             width: '100%',
             height: '100%',
-            minHeight: '300px',
-            zIndex: 2
+            zIndex: 1
           }}>
             <iframe
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: '300px', filter: 'grayscale(20%) contrast(1.1)' }}
+              style={{ border: 0, height: '100%', width: '100%', filter: 'grayscale(100%) invert(90%) contrast(1.2)' }}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089943312!2d80.06892495!3d13.0826802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
               title="Chennai Location"
             />
+          </div>
 
-            {/* Compact Info Overlay */}
-            <div style={{
-              position: 'absolute',
-              bottom: '1rem',
-              left: '1rem',
-              background: 'rgba(0,0,0,0.92)',
-              padding: '1rem 1.25rem',
-              borderRadius: '12px',
-              zIndex: 3,
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(204, 255, 0, 0.3)',
-              maxWidth: '220px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)'
-            }}>
-              <p style={{
-                margin: '0 0 0.5rem 0',
-                fontSize: '0.75rem',
-                color: 'rgba(255,255,255,0.6)',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}>Currently at</p>
-              <p style={{
-                margin: 0,
-                fontSize: '1rem',
-                color: '#ccff00',
-                fontWeight: 700
-              }}>Chennai, India</p>
-              <p style={{
-                marginTop: '0.35rem',
-                fontSize: '0.75rem',
-                color: 'rgba(255,255,255,0.7)',
-                fontWeight: 500
-              }}>
-                Open to remote work
-              </p>
+          <div style={{
+            position: 'absolute',
+            bottom: '1.5rem',
+            left: '1.5rem',
+            zIndex: 3,
+            background: 'rgba(10, 10, 10, 0.85)',
+            backdropFilter: 'blur(8px)',
+            padding: '1rem',
+            borderRadius: '8px',
+            border: '1px solid rgba(204,255,0,0.2)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent)', boxShadow: '0 0 8px var(--accent)' }}></div>
+              <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-main)', letterSpacing: '0.05em' }}>CHENNAI, IN</span>
             </div>
           </div>
         </motion.div>
@@ -203,50 +142,39 @@ export default function About() {
           <div style={{ position: 'relative', zIndex: 2 }}>
             <h3 className="block-title" style={{ marginBottom: '2rem' }}>Tech Arsenal</h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
               {skillCategories.map((cat, idx) => (
                 <div key={idx}>
-                  <h4 style={{
-                    fontSize: '1rem', color: 'var(--accent)', textTransform: 'uppercase',
-                    letterSpacing: '0.05em', marginBottom: '1rem', fontWeight: 600
-                  }}>• {cat.title}</h4>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                    <cat.icon size={18} color="var(--accent)" />
+                    <h4 style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-main)', margin: 0 }}>{cat.title}</h4>
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
                     {cat.items.map(skill => (
-                      <div key={skill.name} className="skill-pill" style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                        {/* Fallback to simple circle if image fails, but let's try mostly working slugs */}
-                        <img
-                          src={`https://cdn.simpleicons.org/${skill.slug}/ffffff`}
-                          style={{ width: '16px', height: '16px', opacity: 0.9 }}
-                          alt=""
-                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                        />
-                        <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>{skill.name}</span>
-                      </div>
+                      <span key={skill} style={{
+                        fontSize: '0.85rem',
+                        color: 'var(--text-muted)',
+                        background: 'rgba(255,255,255,0.03)',
+                        padding: '0.4rem 0.8rem',
+                        borderRadius: '4px',
+                        border: '1px solid transparent',
+                        transition: 'all 0.2s ease'
+                      }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--accent)';
+                          e.currentTarget.style.color = 'var(--text-main)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'transparent';
+                          e.currentTarget.style.color = 'var(--text-muted)';
+                        }}
+                      >
+                        {skill}
+                      </span>
                     ))}
                   </div>
                 </div>
               ))}
-
-              {/* Soft Skills */}
-              <div>
-                <h4 style={{
-                  fontSize: '1rem', color: 'var(--accent)', textTransform: 'uppercase',
-                  letterSpacing: '0.05em', marginBottom: '1rem', fontWeight: 600
-                }}>• Soft Skills</h4>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-                  {softSkills.map(skill => (
-                    <span key={skill} className="skill-pill" style={{
-                      padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.03)',
-                      border: '1px solid var(--border-color)', borderRadius: '8px',
-                      fontSize: '0.9rem', fontWeight: 500
-                    }}>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
             </div>
           </div>
         </motion.div>

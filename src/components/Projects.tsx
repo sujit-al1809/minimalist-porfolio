@@ -1,60 +1,13 @@
 "use client";
 import React from 'react';
-import { Bot, Cpu, Layers, ArrowRight, Zap, Globe, Database } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-
-const projects = [
-  {
-    title: "FinsightAI",
-    description: "Autonomous financial agent swarm powered by Google Gemini & Vertex AI for real-time market analysis.",
-    icon: Bot,
-    tags: ["Python", "GenAI", "GCP"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    metrics: "98% accuracy"
-  },
-  {
-    title: "Smart Crop",
-    description: "IoT system for real-time agricultural analytics with CV on Raspberry Pi monitoring soil and crop health.",
-    icon: Cpu,
-    tags: ["IoT", "CV", "Python"],
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=800&auto=format&fit=crop",
-    metrics: "50+ farms"
-  },
-  {
-    title: "Arch-Ed Platform",
-    description: "Educational hub for architects with ML-driven course recommendations and 3D modeling tools.",
-    icon: Layers,
-    tags: ["Full Stack", "Next.js", "ML"],
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop",
-    metrics: "10K+ users"
-  },
-  {
-    title: "CloudSync Pro",
-    description: "Real-time data synchronization platform with edge computing capabilities for distributed systems.",
-    icon: Database,
-    tags: ["Cloud", "AWS", "Redis"],
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
-    metrics: "99.9% uptime"
-  },
-  {
-    title: "Neural Search",
-    description: "Semantic search engine using transformer models for intelligent document retrieval and analysis.",
-    icon: Zap,
-    tags: ["NLP", "PyTorch", "FastAPI"],
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop",
-    metrics: "1M+ queries/day"
-  },
-  {
-    title: "Global Connect",
-    description: "Multi-language communication platform with real-time translation powered by advanced NLP models.",
-    icon: Globe,
-    tags: ["WebRTC", "Node.js", "AI"],
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800&auto=format&fit=crop",
-    metrics: "50+ languages"
-  }
-];
+import { projects } from "@/data/projects";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Projects() {
+  const router = useRouter();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { currentTarget: target } = e;
@@ -78,84 +31,112 @@ export default function Projects() {
         <h2>Engineering Portfolio</h2>
       </motion.div>
 
-      <div className="bento-grid">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
         {projects.map((project, idx) => (
-          <motion.div
-            key={idx}
-            className="block-card"
-            onMouseMove={handleMouseMove}
-            style={{ display: 'flex', flexDirection: 'column', minHeight: '400px' }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-          >
-            <div className="card-spotlight" />
+          <Link href={`/projects/${project.slug}`} key={idx} style={{ display: 'block' }}>
+            <motion.div
+              className="block-card group"
+              onMouseMove={handleMouseMove}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '420px',
+                padding: '0',
+                overflow: 'hidden',
+                cursor: 'pointer'
+              }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -5 }}
+            >
+              <div className="card-spotlight" />
 
-            {/* Project Image */}
-            <div style={{
-              position: 'relative',
-              zIndex: 2,
-              width: '100%',
-              height: '180px',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              marginBottom: '1.5rem',
-              border: '1px solid var(--border-color)'
-            }}>
-              <img
-                src={project.image}
-                alt={project.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  transition: 'transform 0.3s ease'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-              />
-            </div>
 
-            <div style={{ position: 'relative', zIndex: 2, flex: 1, display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <project.icon size={28} color="#ccff00" />
-                <h3 className="block-title" style={{ marginBottom: 0 }}>{project.title}</h3>
-              </div>
-
-              <p className="block-desc" style={{ marginBottom: '1rem', flex: 1 }}>
-                {project.description}
-              </p>
-
-              {/* Project Metrics */}
+              {/* Image Containter */}
               <div style={{
-                marginBottom: '1.5rem',
-                padding: '0.6rem 1rem',
-                background: 'rgba(204,255,0,0.1)',
-                border: '1px solid rgba(204,255,0,0.3)',
-                borderRadius: '8px',
-                fontSize: '0.85rem',
-                fontWeight: 500,
-                color: 'var(--accent)',
-                display: 'inline-block',
-                alignSelf: 'flex-start'
+                height: '200px',
+                width: '100%',
+                overflow: 'hidden',
+                position: 'relative'
               }}>
-                {project.metrics}
+                {/* Overlay Gradient */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0, left: 0, width: '100%', height: '100%',
+                  background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%)',
+                  zIndex: 2
+                }}></div>
+
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                  }}
+                  className="project-img"
+                />
+
+                {/* Metrics Badge */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '1rem',
+                  right: '1rem',
+                  zIndex: 3,
+                  padding: '0.4rem 0.8rem',
+                  background: 'rgba(204, 255, 0, 0.9)',
+                  color: '#000',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  borderRadius: '4px',
+                  textTransform: 'uppercase'
+                }}>
+                  {project.metrics}
+                </div>
               </div>
 
-              {/* Tags and Link */}
-              <div className="block-actions" style={{ marginTop: 'auto' }}>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column', position: 'relative', zIndex: 2 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                  <h3 className="block-title" style={{ marginBottom: 0, fontSize: '1.25rem' }}>{project.title}</h3>
+                  <motion.div whileHover={{ rotate: 45, color: '#ccff00' }}>
+                    <ArrowUpRight size={20} color="var(--text-muted)" />
+                  </motion.div>
+                </div>
+
+                <p className="block-desc" style={{ marginBottom: '1.5rem', flex: 1, fontSize: '0.9rem' }}>
+                  {project.description}
+                </p>
+
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: 'auto' }}>
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="tag-pill">{tag}</span>
+                    <span key={i} style={{
+                      fontSize: '0.75rem',
+                      color: 'var(--text-muted)',
+                      border: '1px solid var(--border-color)',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '100px',
+                      background: 'rgba(255,255,255,0.02)'
+                    }}>
+                      {tag}
+                    </span>
                   ))}
                 </div>
-                <span className="text-link-arrow" style={{ marginTop: '1rem', display: 'inline-flex' }}>
-                  View Details <ArrowRight size={16} />
-                </span>
               </div>
-            </div>
-          </motion.div>
+
+              {/* Hover Glow Border Bottom */}
+              <div style={{
+                height: '2px',
+                width: '0%',
+                background: 'var(--accent)',
+                margin: '0 auto',
+                transition: 'width 0.3s ease'
+              }} className="hover-line"></div>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </section>

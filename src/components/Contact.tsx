@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Mail, ArrowRight, User, MessageSquare, Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -30,127 +31,145 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section container">
-      <div className="section-header">
+      <motion.div
+        className="section-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-label">/ GET IN TOUCH</span>
         <h2>Let's Build Something</h2>
-      </div>
+      </motion.div>
 
-      <div className="bento-grid contact-grid-mobile" style={{ alignItems: 'start' }}>
-
-        {/* CONTACT INFO CARD */}
-        <div
-          className="block-card CONTACT_CARD"
+      <div className="contact-wrapper" style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <motion.div
+          className="block-card"
           onMouseMove={handleMouseMove}
-          style={{ minHeight: '400px' }}
+          style={{ padding: '3rem', display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '3rem' }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
           <div className="card-spotlight" />
-          <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
-            <div>
-              <Mail size={40} color="var(--accent)" style={{ marginBottom: '1.5rem' }} />
-              <h3 className="block-title">Contact</h3>
-              <p className="block-desc">
-                I'm currently accessible for freelance work and engineering roles.
-              </p>
-            </div>
 
-            <div style={{ marginTop: '2rem' }}>
-              <a href="mailto:sujit@example.com" style={{ display: 'block', fontSize: '1.1rem', marginBottom: '0.5rem', color: 'var(--text-main)', fontWeight: '500' }}>
-                sujit.laware@example.com
-              </a>
-              <p style={{ color: 'var(--text-muted)' }}>Chennai, India</p>
+          {/* Left Side: Info */}
+          <div style={{ position: 'relative', zIndex: 2, borderRight: '1px solid var(--border-color)', paddingRight: '2rem' }}>
+            <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', marginBottom: '1rem', lineHeight: 1.1 }}>
+              Let's <span style={{ color: 'var(--accent)' }}>talk.</span>
+            </h3>
+            <p className="block-desc" style={{ marginBottom: '2rem' }}>
+              Have a project in mind or just want to explore the possibilities? I'm all ears.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Mail size={18} color="var(--accent)" />
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email me at</span>
+                  <a href="mailto:sujit@example.com" style={{ color: 'var(--text-main)', fontWeight: 500 }}>sujit.laware@example.com</a>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <User size={18} color="var(--accent)" />
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)' }}>Based in</span>
+                  <span style={{ color: 'var(--text-main)', fontWeight: 500 }}>Chennai, India</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* CONTACT FORM */}
-        <div
-          className="block-card span-2 contact-col-span-mobile"
-          onMouseMove={handleMouseMove}
-          style={{ padding: '0' }}
-        >
-          <div className="card-spotlight" />
-          <div style={{ position: 'relative', zIndex: 2, padding: '2.5rem', width: '100%' }}>
+          {/* Right Side: Form */}
+          <div style={{ position: 'relative', zIndex: 2 }}>
             {submitted ? (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '300px', textAlign: 'center' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(204,255,0,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                  <Send size={30} color="var(--accent)" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
+              >
+                <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(204,255,0,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', border: '1px solid var(--accent)' }}>
+                  <Send size={32} color="var(--accent)" />
                 </div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>Message Sent!</h3>
-                <p style={{ color: 'var(--text-muted)' }}>I'll get back to you as soon as possible.</p>
-              </div>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>Message Sent</h3>
+                <p style={{ color: 'var(--text-muted)' }}>I'll get back to you within 24 hours.</p>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="contact-grid-mobile" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div className="input-group">
-                    <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Name</label>
-                    <div style={{ position: 'relative' }}>
-                      <User size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                      <input
-                        type="text"
-                        required
-                        value={formState.name}
-                        onChange={e => setFormState({ ...formState, name: e.target.value })}
-                        placeholder="John Doe"
-                        style={{
-                          width: '100%', padding: '1rem 1rem 1rem 3rem',
-                          background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)',
-                          borderRadius: '12px', color: 'var(--text-main)', fontSize: '1rem', outline: 'none'
-                        }}
-                      />
-                    </div>
+                    <input
+                      type="text"
+                      required
+                      value={formState.name}
+                      onChange={e => setFormState({ ...formState, name: e.target.value })}
+                      placeholder="Name"
+                      style={{
+                        width: '100%', padding: '1rem',
+                        background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)',
+                        borderRadius: '8px', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none',
+                        transition: 'border-color 0.2s'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
+                      onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                    />
                   </div>
 
                   <div className="input-group">
-                    <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Email</label>
-                    <div style={{ position: 'relative' }}>
-                      <Mail size={18} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
-                      <input
-                        type="email"
-                        required
-                        value={formState.email}
-                        onChange={e => setFormState({ ...formState, email: e.target.value })}
-                        placeholder="john@example.com"
-                        style={{
-                          width: '100%', padding: '1rem 1rem 1rem 3rem',
-                          background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)',
-                          borderRadius: '12px', color: 'var(--text-main)', fontSize: '1rem', outline: 'none'
-                        }}
-                      />
-                    </div>
+                    <input
+                      type="email"
+                      required
+                      value={formState.email}
+                      onChange={e => setFormState({ ...formState, email: e.target.value })}
+                      placeholder="Email"
+                      style={{
+                        width: '100%', padding: '1rem',
+                        background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)',
+                        borderRadius: '8px', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none',
+                        transition: 'border-color 0.2s'
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
+                      onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                    />
                   </div>
                 </div>
 
                 <div className="input-group">
-                  <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>Message</label>
-                  <div style={{ position: 'relative' }}>
-                    <MessageSquare size={18} style={{ position: 'absolute', left: '1rem', top: '1.2rem', color: 'var(--text-muted)' }} />
-                    <textarea
-                      required
-                      value={formState.message}
-                      onChange={e => setFormState({ ...formState, message: e.target.value })}
-                      placeholder="Tell me about your project..."
-                      rows={4}
-                      style={{
-                        width: '100%', padding: '1rem 1rem 1rem 3rem',
-                        background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)',
-                        borderRadius: '12px', color: 'var(--text-main)', fontSize: '1rem', outline: 'none', resize: 'none', fontFamily: 'inherit'
-                      }}
-                    />
-                  </div>
+                  <textarea
+                    required
+                    value={formState.message}
+                    onChange={e => setFormState({ ...formState, message: e.target.value })}
+                    placeholder="Tell me about your project..."
+                    rows={4}
+                    style={{
+                      width: '100%', padding: '1rem',
+                      background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)',
+                      borderRadius: '8px', color: 'var(--text-main)', fontSize: '0.95rem', outline: 'none', resize: 'none', fontFamily: 'inherit',
+                      transition: 'border-color 0.2s'
+                    }}
+                    onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
+                    onBlur={(e) => e.target.style.borderColor = 'var(--border-color)'}
+                  />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="btn-shiny accent"
-                  style={{ alignSelf: 'flex-start', border: 'none', cursor: isSubmitting ? 'wait' : 'pointer', minWidth: '160px', justifyContent: 'center' }}
+                  style={{ alignSelf: 'flex-start', border: 'none', cursor: isSubmitting ? 'wait' : 'pointer', width: '100%', justifyContent: 'center' }}
                 >
                   {isSubmitting ? 'Sending...' : <>Send Message <ArrowRight size={18} /></>}
                 </button>
               </form>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -44,7 +44,7 @@ export default function Navbar() {
           <Link href="/" style={{
             fontSize: '1rem', fontWeight: 600, letterSpacing: '-0.02em', color: 'var(--text-main)'
           }}>
-            sujit.laware
+            sujit.al
           </Link>
 
           {/* DESKTOP MENU */}
@@ -52,6 +52,7 @@ export default function Navbar() {
             <div style={{ display: 'flex', gap: '2rem' }}>
               <Link href="#about" className="nav-link-item">About</Link>
               <Link href="#projects" className="nav-link-item">Work</Link>
+              <Link href="#blog" className="nav-link-item">Blog</Link>
               <Link href="#contact" className="nav-link-item">Contact</Link>
             </div>
 
@@ -113,6 +114,7 @@ export default function Navbar() {
       <div className={`mobile-menu ${isMobileOpen ? 'open' : ''}`}>
         <Link href="#about" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>About</Link>
         <Link href="#projects" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Work</Link>
+        <Link href="#blog" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Blog</Link>
         <Link href="#contact" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Contact</Link>
         <a href="/resume.pdf" target="_blank" className="btn-shiny" style={{ justifyContent: 'center' }}>
           Resume <Download size={18} />

@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sujit Laware | Design Engineer",
-  description: "Portfolio of Sujit Laware - Edge AI & Web Systems",
+  title: "Sujit AL | Design Engineer",
+  description: "Portfolio of Sujit AL - Edge AI & Web Systems",
 };
 
 export const viewport: Viewport = {
