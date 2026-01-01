@@ -7,8 +7,7 @@
 
 > A high-performance, developer-centric portfolio designed with a distinct "Acid" aesthetic. Featuring glassmorphism, micro-interactions, and a premium dark mode that screams engineering excellence.
 
-![Portfolio Preview](./public/portfolio-preview.png)
-*(Note: Please replace `./public/portfolio-preview.png` with your actual screenshot)*
+![Portfolio Preview](./public/portfolio-preview.jpg)
 
 ## Features
 
