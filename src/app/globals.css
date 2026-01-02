@@ -548,7 +548,6 @@ img {
   width: 100%;
   margin: 0 auto;
   padding: 0 3rem;
-  overflow-x: hidden;
 }
 
 @media (max-width: 1200px) {
