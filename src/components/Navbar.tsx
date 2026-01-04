@@ -44,13 +44,14 @@ export default function Navbar() {
           <Link href="/" style={{
             fontSize: '1rem', fontWeight: 600, letterSpacing: '-0.02em', color: 'var(--text-main)'
           }}>
-            sujit.al
+            sujit<span style={{ color: 'var(--accent)' }}>.al</span>
           </Link>
 
           {/* DESKTOP MENU */}
           <div className="desktop-menu" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             <div style={{ display: 'flex', gap: '2rem' }}>
               <Link href="#about" className="nav-link-item">About</Link>
+              <Link href="#experience" className="nav-link-item">Experience</Link>
               <Link href="#projects" className="nav-link-item">Work</Link>
               <Link href="#blog" className="nav-link-item">Blog</Link>
               <Link href="#contact" className="nav-link-item">Contact</Link>
@@ -59,29 +60,7 @@ export default function Navbar() {
             {/* DIVIDER */}
             <div style={{ width: '1px', height: '24px', background: 'var(--border-color)', margin: '0 0.5rem' }}></div>
 
-            {/* AVAILABILITY BADGE */}
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 12px',
-              background: 'rgba(204,255,0,0.1)',
-              border: '1px solid rgba(204,255,0,0.3)',
-              borderRadius: '100px',
-              fontSize: '0.85rem',
-              color: 'var(--text-main)',
-              fontWeight: 500
-            }}>
-              <span style={{
-                width: '6px',
-                height: '6px',
-                background: 'var(--accent)',
-                borderRadius: '50%',
-                boxShadow: '0 0 8px rgba(204, 255, 0, 0.6)',
-                animation: 'pulse 2s infinite'
-              }}></span>
-              Available
-            </div>
+
 
             {/* THEME TOGGLE */}
             <button onClick={toggleTheme} style={{
@@ -113,6 +92,7 @@ export default function Navbar() {
       {/* MOBILE MENU DROPDOWN */}
       <div className={`mobile-menu ${isMobileOpen ? 'open' : ''}`}>
         <Link href="#about" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>About</Link>
+        <Link href="#experience" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Experience</Link>
         <Link href="#projects" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Work</Link>
         <Link href="#blog" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Blog</Link>
         <Link href="#contact" onClick={() => setIsMobileOpen(false)} className="nav-link-item" style={{ fontSize: '1.2rem' }}>Contact</Link>

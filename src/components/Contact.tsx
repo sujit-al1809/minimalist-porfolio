@@ -17,16 +17,32 @@ export default function Contact() {
     target.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error sending message. Please try again later.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   return (

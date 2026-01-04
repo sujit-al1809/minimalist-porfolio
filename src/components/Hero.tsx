@@ -60,18 +60,20 @@ export default function Hero() {
             alignItems: 'center',
             gap: '10px',
             padding: '8px 16px',
-            background: 'rgba(128,128,128,0.1)',
-            border: '1px solid var(--border-color)',
+            background: 'rgba(204,255,0,0.1)',
+            border: '1px solid rgba(204,255,0,0.3)',
             borderRadius: '100px',
             fontSize: '0.9rem',
-            color: 'var(--text-muted)'
+            color: 'var(--text-main)',
+            fontWeight: 500
           }}>
             <span style={{
               width: '8px',
               height: '8px',
               background: 'var(--accent)',
               borderRadius: '50%',
-              boxShadow: '0 0 10px rgba(204, 255, 0, 0.4)'
+              boxShadow: '0 0 10px rgba(204, 255, 0, 0.6)',
+              animation: 'pulse 2s infinite'
             }}></span>
             Available for new projects
           </div>
@@ -112,8 +114,9 @@ export default function Hero() {
             wordWrap: 'break-word'
           }}
         >
-          I'm Sujit, a multidisciplinary engineer specializing in
-          High-Performance Web Apps, Edge Computing, and Cloud Infrastructure.
+          <span style={{ color: 'var(--accent)' }}>Hello, Namaste, Vanakkam, Bonjour!</span>
+          <br />
+          I&apos;m Sujit, an IITM undergrad student. I&apos;ve worked at Zeex AI, Runverve, handled multiple freelance clients, and I&apos;m currently working on research projects at IITM.
         </motion.p>
 
         <motion.div
