@@ -2,59 +2,44 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-color: var(--bg-main, #0a0a0a);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #000;
     z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .preloaderHidden {
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
+    transform: translateY(-20px);
 }
 
-.loaderContent {
+.terminalLoader {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    color: #ccff00;
+    font-weight: 700;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2px;
 }
 
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    border-top-color: var(--accent, #ccff00);
-    animation: spin 1s ease-in-out infinite;
+.cursor {
+    animation: blink 0.8s infinite;
 }
 
-.loaderText {
-    color: var(--text-muted, #888);
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.05em;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes pulse {
+@keyframes blink {
 
     0%,
     100% {
-        opacity: 0.6;
+        opacity: 1;
     }
 
     50% {
-        opacity: 1;
+        opacity: 0;
     }
 }

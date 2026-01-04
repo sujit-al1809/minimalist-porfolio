@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sujit AL | Design Engineer",
+  title: "Sujit AL | AI Engineer, Data Scientist & Backend Engineer",
   description: "Portfolio of Sujit AL - Edge AI & Web Systems",
 };
 

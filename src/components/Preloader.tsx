@@ -3,33 +3,34 @@ import React, { useEffect, useState } from 'react';
 import styles from './Preloader.module.css';
 
 export default function Preloader() {
+  const [text, setText] = useState("");
   const [complete, setComplete] = useState(false);
   const [cleanup, setCleanup] = useState(false);
 
+  const fullText = "INITIALIZING SYSTEM... ACCESS GRANTED.";
+
   useEffect(() => {
-    // Start fade out after 0.8s (reduced from 2s)
-    const timer1 = setTimeout(() => {
-      setComplete(true);
-    }, 800);
+    let index = 0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, index));
+      index++;
+      if (index > fullText.length) {
+        clearInterval(interval);
+        setTimeout(() => setComplete(true), 500);
+        setTimeout(() => setCleanup(true), 1200);
+      }
+    }, 50);
 
-    // Remove from DOM after transition (0.5s)
-    const timer2 = setTimeout(() => {
-      setCleanup(true);
-    }, 1300);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   if (cleanup) return null;
 
   return (
     <div className={`${styles.preloader} ${complete ? styles.preloaderHidden : ''}`}>
-      <div className={styles.loaderContent}>
-        <div className={styles.spinner}></div>
-        <p className={styles.loaderText}>Loading...</p>
+      <div className={styles.terminalLoader}>
+        <span className={styles.terminalText}>{text}</span>
+        <span className={styles.cursor}>_</span>
       </div>
     </div>
   );

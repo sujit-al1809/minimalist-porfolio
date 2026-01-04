@@ -75,8 +75,10 @@ export default function Contact() {
             <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', marginBottom: '1rem', lineHeight: 1.1 }}>
               Let's <span style={{ color: 'var(--accent)' }}>talk.</span>
             </h3>
-            <p className="block-desc" style={{ marginBottom: '2rem' }}>
-              Have a project in mind or just want to explore the possibilities? I'm all ears.
+            <p className="block-desc" style={{ marginBottom: '2rem', fontSize: '1.05rem' }}>
+              I&apos;m currently available for <strong style={{ color: 'var(--accent)' }}>freelance projects</strong> and <strong style={{ color: 'var(--text-main)' }}>full-time roles</strong>.
+              <br /><br />
+              Whether you need a high-performance web app, an AI integration, or just want to discuss the future of tech — my inbox is open.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

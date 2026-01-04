@@ -85,7 +85,7 @@ export default function BlogPost() {
                         </div>
                         <div>
                             <h4 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>Sujit AL</h4>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Design Engineer & AI Enthusiast. Building the future of digital experiences.</p>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>AI Engineer, Data Scientist & Backend Engineer. Building the future of digital experiences.</p>
                         </div>
                     </div>
 

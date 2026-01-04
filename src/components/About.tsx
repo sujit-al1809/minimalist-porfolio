@@ -50,6 +50,35 @@ export default function About() {
         <h2>The Developer</h2>
       </motion.div>
 
+      {/* STATS BAR */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+          gap: '1rem',
+          marginBottom: '3rem',
+          padding: '1.5rem',
+          background: 'rgba(255,255,255,0.03)',
+          borderRadius: '16px',
+          border: '1px solid var(--border-color)'
+        }}
+      >
+        {[
+          { label: "Experience", value: "2+ Years" },
+          { label: "Shipments", value: "10+ Projects" },
+          { label: "Focus", value: "Startups & R&D" }
+        ].map((stat, i) => (
+          <div key={i} style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.25rem' }}>{stat.value}</div>
+            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{stat.label}</div>
+          </div>
+        ))}
+      </motion.div>
+
       <div className="bento-grid">
         <motion.div
           className="block-card span-2"
