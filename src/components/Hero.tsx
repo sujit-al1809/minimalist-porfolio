@@ -86,7 +86,7 @@ export default function Hero() {
           variants={fadeUp}
           style={{
             fontFamily: "'Space Grotesk', sans-serif",
-            fontSize: 'clamp(1.75rem, 6vw, 5.5rem)',
+            fontSize: 'clamp(1.75rem, 5vw, 4.5rem)',
             fontWeight: 600,
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
