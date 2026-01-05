@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from "next/link";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Twitter, Youtube, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Placeholder photos matching the "rotated photo stack" vibe
@@ -129,24 +129,32 @@ export default function Hero() {
         >
 
           <div className="social-icons" style={{ display: 'flex', gap: '1rem', marginRight: '0.5rem' }}>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
+            <a href="https://github.com/sujit-al1809" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
               <Github size={24} className="hover:text-white" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
+            <a href="https://linkedin.com/in/sujit-laware" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
               <Linkedin size={24} className="hover:text-white" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
+            <a href="https://x.com/suijt_al" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
               <Twitter size={24} className="hover:text-white" />
+            </a>
+            <a href="https://youtube.com/@sujit_al" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
+              <Youtube size={24} className="hover:text-white" />
+            </a>
+            <a href="https://instagram.com/sujit_al" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--text-muted)', transition: 'color 0.2s' }}>
+              <Instagram size={24} className="hover:text-white" />
             </a>
           </div>
 
-          <Link href="#projects" className="btn-shiny">
-            View Work <ArrowRight size={18} />
+          <Link href="#contact" className="btn-shiny">
+            Contact Me <ArrowRight size={18} />
           </Link>
 
-          <Link href="#contact" className="text-link-arrow">
-            Contact Me <ArrowRight size={16} />
-          </Link>
+          <a href="https://picklebytes.substack.com/" target="_blank" className="text-link-arrow" style={{ fontSize: '0.9rem', color: 'var(--accent)' }}>
+            Subscribe Newsletter <ArrowRight size={14} />
+          </a>
+
+
         </motion.div>
 
         {/* Ticker Removed as requested */}
