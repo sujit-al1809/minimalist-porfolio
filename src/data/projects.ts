@@ -3,14 +3,32 @@ import { Bot, Cpu, Layers, Zap, Globe, Database } from "lucide-react";
 
 export const projects = [
     {
+        slug: "architecture-academics-platform",
+        title: "Architecture Academics Platform",
+        description: "Cloud-native educational hub for architects with ML-driven course recommendations.",
+        icon: Layers,
+        tags: ["Next.js", "FastAPI", "AWS", "Docker"],
+        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop",
+        metrics: "Scalable Full-Stack",
+        longDescription: "Designed and deployed a cloud-native, scalable full-stack platform for architecture students and professionals. It supports courses, jobs, competitions, workshops, and discussion forums. Architected RESTful backend services and implemented a modular system design to ensure scalability, maintainability, and efficient content management.",
+        features: [
+            "ML-driven course recommendations",
+            "Interactive 3D modeling workspace via web",
+            "Job and competition portal",
+            "Discussion forums",
+            "Scalable microservices architecture"
+        ],
+        techStack: ["Next.js", "FastAPI", "AWS (S3, Lambda, RDS)", "Docker", "PostgreSQL", "Redis"]
+    },
+    {
         slug: "finsight-ai",
         title: "FinsightAI",
-        description: "Autonomous financial agent swarm powered by Google Gemini & Vertex AI for real-time market analysis.",
+        description: "Autonomous financial agent swarm powered by Google Gemini & Vertex AI.",
         icon: Bot,
-        tags: ["Python", "GenAI", "GCP"],
+        tags: ["GenAI", "Google ADK", "Vertex AI"],
         image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=800&auto=format&fit=crop",
-        metrics: "98% accuracy",
-        longDescription: "FinsightAI is a cutting-edge autonomous financial agent swarm designed to revolutionize real-time market analysis. Leveraging the power of Google Gemini and Vertex AI, it processes vast amounts of financial data to identify trends, predict market movements, and provide actionable insights with unprecedented speed and accuracy. The system is built on a scalable architecture that allows multiple agents to collaborate, cross-verify information, and evolve their strategies based on market conditions.",
+        metrics: "Global Hackathon Finalist",
+        longDescription: "Developed FinsightAI, a modular multi-agent financial assistant using Google ADK and Gemini LLMs to deliver personalized financial insights from real-time FI MCP data. Selected for the final round of the world’s largest Agentic AI Hackathon 2025 by Google.",
         features: [
             "Real-time market data processing",
             "Multi-agent collaboration swarm",
@@ -18,97 +36,43 @@ export const projects = [
             "Automated report generation",
             "Sentiment analysis from news sources"
         ],
-        techStack: ["Python", "Google Vertex AI", "Google Gemini Pro", "Docker", "FastAPI", "React"]
+        techStack: ["Python", "Google Vertex AI", "Google Gemini Pro", "Google ADK", "Flask", "Vue.js"]
     },
     {
-        slug: "smart-crop",
-        title: "Smart Crop",
-        description: "IoT system for real-time agricultural analytics with CV on Raspberry Pi monitoring soil and crop health.",
-        icon: Cpu,
-        tags: ["IoT", "CV", "Python"],
-        image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=800&auto=format&fit=crop",
-        metrics: "50+ farms",
-        longDescription: "Smart Crop is an advanced IoT-based agricultural analytics platform designed to empower farmers with data-driven insights. By deploying disjoint sensors and Computer Vision enabled Raspberry Pi units across the field, the system monitors critical parameters like soil moisture, temperature, and crop health in real-time. The collected data is analyzed to detect early signs of disease, optimize irrigation schedules, and maximize crop yield, ensuring sustainable farming practices.",
-        features: [
-            "Real-time soil moisture monitoring",
-            "Crop disease detection using Computer Vision",
-            "Automated irrigation control",
-            "Weather forecasting integration",
-            "Mobile app for remote monitoring"
-        ],
-        techStack: ["Raspberry Pi", "OpenCV", "Python", "MQTT", "React Native", "Firebase"]
-    },
-    {
-        slug: "arch-ed-platform",
-        title: "Arch-Ed Platform",
-        description: "Educational hub for architects with ML-driven course recommendations and 3D modeling tools.",
-        icon: Layers,
-        tags: ["Full Stack", "Next.js", "ML"],
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop",
-        metrics: "10K+ users",
-        longDescription: "Arch-Ed Platform is a comprehensive educational hub tailored for architecture students and professionals. It combines high-quality course content with an ML-driven recommendation engine to suggest personalized learning paths. The platform also features integrated web-based 3D modeling tools, allowing users to practice their design skills directly within the browser, fostering a seamless learn-by-doing environment.",
-        features: [
-            "ML-driven course recommendations",
-            "Interactive 3D modeling workspace",
-            "Community portfolio showcase",
-            "Live expert mentorship sessions",
-            "Gamified learning progress tracking"
-        ],
-        techStack: ["Next.js", "TypeScript", "Three.js", "TensorFlow.js", "MongoDB", "Auth0"]
-    },
-    {
-        slug: "cloudsync-pro",
-        title: "CloudSync Pro",
-        description: "Real-time data synchronization platform with edge computing capabilities for distributed systems.",
-        icon: Database,
-        tags: ["Cloud", "AWS", "Redis"],
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop",
-        metrics: "99.9% uptime",
-        longDescription: "CloudSync Pro is a robust real-time data synchronization platform engineered for distributed systems requiring high availability and low latency. It utilizes edge computing nodes to cache and process data closer to the source, significantly reducing bandwidth usage and server load. Built on AWS and Redis, CloudSync Pro ensures seamless data consistency across global deployments, making it ideal for collaborative applications and IoT networks.",
-        features: [
-            "Real-time bi-directional sync",
-            "Edge caching and processing",
-            "Conflict resolution strategies",
-            "Offline support and sync",
-            "Comprehensive analytics dashboard"
-        ],
-        techStack: ["AWS Lambda", "Redis", "Node.js", "WebSockets", "Terraform", "Vue.js"]
-    },
-    {
-        slug: "neural-search",
-        title: "Neural Search",
-        description: "Semantic search engine using transformer models for intelligent document retrieval and analysis.",
+        slug: "ml-fitness-tracker",
+        title: "ML Fitness Tracker",
+        description: "ML system using sensor data to detect exercises and count repetitions.",
         icon: Zap,
-        tags: ["NLP", "PyTorch", "FastAPI"],
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
-        metrics: "1M+ queries",
-        longDescription: "Neural Search represents the next generation of information retrieval, moving beyond keyword matching to understanding the semantic meaning behind queries. Powered by state-of-the-art transformer models (BERT/RoBERTa), it provides highly relevant search results even for complex or ambiguous queries. The engine is capable of ingesting and indexing vast document repositories, making it a powerful tool for enterprise knowledge management and research applications.",
+        tags: ["Machine Learning", "IoT", "FastAPI"],
+        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
+        metrics: "95% Accuracy",
+        longDescription: "Built an ML-based fitness tracking system using sensor data (accelerometers, gyroscopes) to accurately detect movements and count repetitions during free-weight exercises. Developed a web dashboard for real-time performance analytics and feedback.",
         features: [
-            "Semantic vector search",
-            "Context-aware query understanding",
-            "Automatic document summarization",
-            "Multi-language support",
-            "Relevance feedback loop"
+            "Movement detection using accelerometer data",
+            "Repetition counting algorithm",
+            "Real-time analytics dashboard",
+            "Exercise form correction feedback",
+            "Historical progress tracking"
         ],
-        techStack: ["PyTorch", "HuggingFace Transformers", "Qdrant Vector DB", "FastAPI", "React", "Docker"]
+        techStack: ["Python", "Scikit-Learn", "Sensor Data Processing", "FastAPI", "React", "WebSockets"]
     },
     {
-        slug: "global-connect",
-        title: "Global Connect",
-        description: "Multi-language communication platform with real-time translation powered by advanced NLP models.",
-        icon: Globe,
-        tags: ["WebRTC", "Node.js", "AI"],
-        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
-        metrics: "50+ langs",
-        longDescription: "Global Connect breaks down language barriers by offering a seamless real-time communication platform with integrated translation capabilities. Using WebRTC for low-latency video and audio calls, combined with advanced NLP models for on-the-fly translation, it enables users from different linguistic backgrounds to converse naturally. Whether for business meetings or social connection, Global Connect ensures that language is no longer an obstacle.",
+        slug: "pharmacy-automation",
+        title: "Pharmacy Automation",
+        description: "OCR + LLM system for digitizing prescriptions and AI medicine recommendations.",
+        icon: Database,
+        tags: ["OCR", "LLMs", "Vector DB"],
+        image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=800&auto=format&fit=crop",
+        metrics: "Automated Digitization",
+        longDescription: "Built an OCR + LLM-based automation system for digitizing handwritten prescriptions and an AI-driven medicine recommendation engine using vector search for safe generic alternatives. Includes a smart inventory dashboard with real-time tracking and agentic AI SQL insights.",
         features: [
-            "Real-time speech-to-speech translation",
-            "High-definition video calling",
-            "Live subtitle generation",
-            "Chat translation",
-            "Meeting transcription and summary"
+            "Handwritten prescription digitization (OCR)",
+            "AI medicine recommendation engine",
+            "Generic alternative finder",
+            "Smart inventory dashboard",
+            "Agentic SQL insights"
         ],
-        techStack: ["WebRTC", "Socket.io", "Node.js", "OpenAI Whisper", "React", "MongoDB"]
+        techStack: ["Python", "OCR (Tesseract/Vision)", "LLMs", "Vector Databases (Pinecone/Qdrant)", "FastAPI", "SQL"]
     },
     {
         slug: "deepecho",
@@ -118,7 +82,7 @@ export const projects = [
         tags: ["Audio AI", "Python", "RVC"],
         image: "https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?q=80&w=800&auto=format&fit=crop",
         metrics: "44.1kHz",
-        longDescription: "DeepEcho allows creators to clone voices and dub content with incredible fidelity using Retrieval-based Voice Conversion (RVC) architecture. It empowers content creators, filmmakers, and game developers to generate high-quality voiceovers and character voices without the need for expensive recording sessions. The tool supports multiple languages and offers fine-grained control over pitch and emotion.",
+        longDescription: "DeepEcho allows creators to clone voices and dub content with incredible fidelity using Retrieval-based Voice Conversion (RVC) architecture. It empowers content creators, filmmakers, and game developers to generate high-quality voiceovers and character voices without the need for expensive recording sessions.",
         features: [
             "High-fidelity voice cloning",
             "Real-time voice conversion",
@@ -129,21 +93,21 @@ export const projects = [
         techStack: ["Python", "PyTorch", "RVC", "FastAPI", "FFmpeg", "React"]
     },
     {
-        slug: "safenet",
-        title: "SafeNet",
-        description: "Intrusion detection system utilizing anomaly detection algorithms to identify network threats.",
-        icon: Layers,
-        tags: ["Security", "ML", "Network"],
-        image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=800&auto=format&fit=crop",
-        metrics: "95% catch",
-        longDescription: "SafeNet is an intelligent Intrusion Detection System (IDS) that leverages machine learning specifically anomaly detection algorithms to safeguard network infrastructures. Unlike traditional signature-based systems, SafeNet learns the normal behavior patterns of the network and can identify novel zero-day attacks and subtle anomalies that would otherwise go unnoticed. It provides real-time alerts and detailed forensic reports to security teams.",
+        slug: "neural-search",
+        title: "Neural Search",
+        description: "Semantic search engine using transformer models for intelligent document retrieval.",
+        icon: Zap,
+        tags: ["NLP", "PyTorch", "FastAPI"],
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop",
+        metrics: "1M+ queries",
+        longDescription: "Neural Search represents the next generation of information retrieval, moving beyond keyword matching to understanding the semantic meaning behind queries. Powered by state-of-the-art transformer models (BERT/RoBERTa), it provides highly relevant search results even for complex or ambiguous queries.",
         features: [
-            "Traffic anomaly detection",
-            "Zero-day threat identification",
-            "Real-time alert dashboard",
-            "Network traffic visualization",
-            "Automated threat mitigation"
+            "Semantic vector search",
+            "Context-aware query understanding",
+            "Automatic document summarization",
+            "Multi-language support",
+            "Relevance feedback loop"
         ],
-        techStack: ["Python", "Scikit-Learn", "Wireshark (tshark)", "Elasticsearch", "Kibana", "InfluxDB"]
+        techStack: ["PyTorch", "HuggingFace Transformers", "Qdrant Vector DB", "FastAPI", "React", "Docker"]
     }
 ];

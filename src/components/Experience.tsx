@@ -7,28 +7,28 @@ const exp = [
   {
     role: "Research Intern",
     company: "RuTAG, IIT Madras",
-    time: "Current",
+    time: "May 2025 - Present",
     location: "Chennai, India",
-    desc: "Developing Smart Heat Pump Dryers with IoT integration.",
+    desc: "Developing AI-Based Food Processing System & Weaving Code Conversion.",
     achievements: [
-      "Designed ML models for energy optimization reducing power consumption by 30%",
-      "Implemented real-time monitoring dashboard using React and WebSockets",
-      "Published research paper on thermal efficiency improvements"
+      "Built CV models for cardamom quality/moisture estimation for smart dryers",
+      "Developed image-processing system (React + OpenCV) to convert designs to weaving code",
+      "Contributed to a provisional patent filing"
     ],
-    technologies: ["Python", "IoT", "TensorFlow", "React"]
+    technologies: ["Python", "OpenCV", "React", "IoT"]
   },
   {
-    role: "AI/ML Intern",
+    role: "AI/ML and Cloud Engineering Intern",
     company: "Runverve",
-    time: "2024 - 2025",
+    time: "Dec 2024 - Apr 2025",
     location: "Remote",
-    desc: "Deployed personalized coaching AI models.",
+    desc: "Built AI-driven features for Verve Coach and Verve Doc.",
     achievements: [
-      "Built recommendation engine serving 10K+ users with 95% satisfaction rate",
-      "Optimized model inference time by 60% using quantization techniques",
-      "Integrated GPT-4 API for natural language coaching interactions"
+      "Deployed ML models into production APIs using Flask and FastAPI",
+      "Led backend deployment and optimization on AWS (EC2, Lambda, S3)",
+      "Ensured scalable, reliable systems for personalized coaching and healthcare"
     ],
-    technologies: ["Python", "PyTorch", "FastAPI", "AWS"]
+    technologies: ["Python", "FastAPI", "AWS", "Flask"]
   }
 ];
 

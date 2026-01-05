@@ -5,28 +5,28 @@ import { motion } from "framer-motion";
 
 const hackathons = [
     {
-        title: "Smart India Hackathon 2024",
+        title: "Blockathon (Blockchain Hackathon)",
         result: "Winner",
-        project: "Agri-Tech Solutions",
-        desc: "Developed a precision farming system using IoT and Drone imagery.",
+        project: "Decentralized AI Agents",
+        desc: "Built a decentralized application integrated with autonomous AI agents.",
         icon: Trophy,
         color: "#ffd700" // Gold
     },
     {
-        title: "ETHIndia 2023",
+        title: "Google AI Agentic Hackathon",
         result: "Finalist",
-        project: "DeFi Aggregator",
-        desc: "Built a cross-chain yield optimizer on Ethereum using Solidity.",
-        icon: Code2,
-        color: "#c0c0c0" // Silver
+        project: "FinsightAI",
+        desc: "Selected among top teams globally. Built a modular multi-agent financial assistant.",
+        icon: Star,
+        color: "#4285F4" // Google Blue-ish
     },
     {
-        title: "Google Solution Challenge",
-        result: "Top 50 Global",
-        project: "EcoTrack",
-        desc: "Carbon footprint tracking app integrated with Google Maps Platform.",
-        icon: Star,
-        color: "#ccff00" // Acid Green
+        title: "Avishkar Hackathon (NIOT)",
+        result: "Runner-up",
+        project: "Deep Tech Solution",
+        desc: "Organized by National Institute of Ocean Technology & SRMIST.",
+        icon: Award,
+        color: "#c0c0c0" // Silver
     },
     {
         title: "HackHarvard 2023",

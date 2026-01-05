@@ -16,24 +16,34 @@ export default function Leadership() {
 
   const cards = [
     {
+      icon: Users,
+      title: "AWS Cloud Club IIT Madras",
+      role: "CLUB LEAD",
+      desc: "ranked among the top 200 worldwide. Managing a 1,000+ member student community and organizing cloud/AI workshops.",
+      tag: "Community",
+      extra: "IIT Madras",
+      span: "span-2",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+    },
+    {
       icon: Rocket,
       title: "Zeex AI",
-      role: "TECH LEAD / AI & CLOUD",
-      desc: "Led the technical team for a student startup backed by Nirmaan. Pre-incubated at IIT Madras. Architected the cloud infrastructure.",
+      role: "TECHNICAL LEAD",
+      desc: "Building ML pipelines, deployment workflows, and scalable backend for a student startup.",
       tag: "Startup",
-      extra: "APR 2025",
-      span: "span-2",
+      extra: "Nirmaan",
+      span: "",
       image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop"
     },
     {
-      icon: Users,
-      title: "Cloud Club",
-      role: "PRESIDENT / AWS IITM",
-      desc: "Spearheaded a community of 1,000+ members. Organized hackathons & workshops.",
-      tag: "Community",
-      extra: null,
+      icon: Mic,
+      title: "Paradox / TechXConf",
+      role: "COORDINATOR",
+      desc: "Coordinated sponsorships for Paradox (IITM Fest). Crew member at TechXConf 2024 & GDG Cloud Days.",
+      tag: "Events",
+      extra: "Chennai",
       span: "",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop"
     },
     {
       icon: Mic,
@@ -42,28 +52,8 @@ export default function Leadership() {
       desc: "Delivered a keynote on 'Scaling AI Agents on Vertex AI' to an audience of 500+ developers.",
       tag: "Speaking",
       extra: "Chennai",
-      span: "",
-      image: "https://images.unsplash.com/photo-1475721027767-f421355f0881?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      icon: Mic,
-      title: "DevFest 2024",
-      role: "WORKSHOP LEAD",
-      desc: "Conducted a hands-on workshop on 'Building RAG Pipelines' using LangChain and Gemini.",
-      tag: "Workshop",
-      extra: "Coimbatore",
       span: "span-2",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-      icon: Mic,
-      title: "Paradox",
-      role: "COORDINATOR",
-      desc: "Managed sponsorships and logistics for IIT Madras's annual fest. Active GDG Chennai contributor.",
-      tag: "Volunteer",
-      extra: null,
-      span: "",
-      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1475721027767-f421355f0881?q=80&w=800&auto=format&fit=crop"
     }
   ];
 
