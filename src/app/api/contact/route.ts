@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
     try {
@@ -13,50 +14,56 @@ export async function POST(request: Request) {
             );
         }
 
-        // Call Web3Forms API
-        // Documentation: https://docs.web3forms.com/
-        const apiKey = process.env.WEB3FORMS_ACCESS_KEY;
+        const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_EMAIL } = process.env;
 
-        if (!apiKey) {
-            console.warn('Web3Forms Access Key missing in environment variables.');
-            // return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
-            // For demo purposes, we will rely on client-side or assume it might work if the user adds it later, but strictly we need it.
-        }
-
-        const response = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({
-                access_key: apiKey,
-                name,
-                email,
-                message,
-                subject: `New Portfolio Message from ${name}`
-            })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
+        if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+            console.error('Missing SMTP configuration');
             return NextResponse.json(
-                { message: 'Email sent successfully via Web3Forms' },
-                { status: 200 }
-            );
-        } else {
-            console.error('Web3Forms error:', result);
-            return NextResponse.json(
-                { error: result.message || 'Failed to send message.' },
+                { error: 'Server configuration error' },
                 { status: 500 }
             );
         }
 
+        const transporter = nodemailer.createTransport({
+            host: SMTP_HOST,
+            port: Number(SMTP_PORT) || 587,
+            secure: Number(SMTP_PORT) === 465, // true for 465, false for other ports
+            auth: {
+                user: SMTP_USER,
+                pass: SMTP_PASS,
+            },
+        });
+
+        const mailOptions = {
+            from: `"${name}" <${SMTP_USER}>`, // Sender address (must be authenticated user usually)
+            to: CONTACT_EMAIL || SMTP_USER, // Receiver address
+            replyTo: email, // Reply to the person who filled the form
+            subject: `New Portfolio Message from ${name}`,
+            text: message,
+            html: `
+                <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2>New Message from Config Portfolio</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Message:</strong></p>
+                    <blockquote style="background: #f9f9f9; padding: 15px; border-left: 5px solid #ccc;">
+                        ${message.replace(/\n/g, '<br>')}
+                    </blockquote>
+                </div>
+            `,
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        return NextResponse.json(
+            { message: 'Email sent successfully via NodeMailer' },
+            { status: 200 }
+        );
+
     } catch (error) {
         console.error('Contact form error:', error);
         return NextResponse.json(
-            { error: 'Failed to send message properly.' },
+            { error: 'Failed to send message.' },
             { status: 500 }
         );
     }
