@@ -88,7 +88,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)' }}>Email me at</span>
-                  <a href="mailto:sujit@example.com" style={{ color: 'var(--text-main)', fontWeight: 500 }}>sujit.laware@example.com</a>
+                  <a href="mailto:contact@sujit.codes" style={{ color: 'var(--text-main)', fontWeight: 500 }}>contact@sujit.codes</a>
                 </div>
               </div>
 

@@ -25,6 +25,25 @@
 *   **Animation:** [Framer Motion](https://www.framer.com/motion/)
 *   **Icons:** [Lucide React](https://lucide.dev/)
 
+## Environment Setup
+
+This project requires environment variables for the contact form to function (NodeMailer).
+
+1.  Copy the example environment file:
+    ```bash
+    cp .env.example .env.local
+    ```
+    *(On Windows PowerShell: `copy .env.example .env.local`)*
+
+2.  Open `.env.local` and fill in your SMTP credentials:
+    ```env
+    SMTP_HOST=smtp.gmail.com
+    SMTP_PORT=587
+    SMTP_USER=your-email@gmail.com
+    SMTP_PASS=your-app-specific-password
+    CONTACT_EMAIL=contact@sujit.codes
+    ```
+
 ## Getting Started
 
 1.  **Clone the repository:**
