@@ -116,7 +116,7 @@ export default function Hero() {
         >
           <span style={{ color: 'var(--accent)' }}>Hello, Namaste, Vanakkam, Bonjour!</span>
           <br />
-          I&apos;m Sujit, an IITM undergrad student. I&apos;ve worked at Zeex AI, Runverve, handled multiple freelance clients, and I&apos;m currently working on research projects at IITM.
+          I&apos;m Sujit, an <strong style={{ color: 'var(--text-main)' }}>IITM undergrad student</strong>. I&apos;ve worked at <strong style={{ color: 'var(--text-main)' }}>Zeex AI</strong>, <strong style={{ color: 'var(--text-main)' }}>Runverve</strong>, handled multiple <strong style={{ color: 'var(--text-main)' }}>freelance clients</strong>, and I&apos;m currently working on <strong style={{ color: 'var(--text-main)' }}>research projects at IITM</strong>.
         </motion.p>
 
         <motion.div
@@ -125,7 +125,7 @@ export default function Hero() {
           animate="visible"
           variants={fadeUp}
           className="hero-buttons"
-          style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}
+          style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}
         >
 
           <div className="social-icons" style={{ display: 'flex', gap: '1rem', marginRight: '0.5rem' }}>
@@ -153,11 +153,34 @@ export default function Hero() {
           <a href="https://picklebytes.substack.com/" target="_blank" className="text-link-arrow" style={{ fontSize: '0.9rem', color: 'var(--accent)' }}>
             Subscribe Newsletter <ArrowRight size={14} />
           </a>
-
-
         </motion.div>
 
-        {/* Ticker Removed as requested */}
+        {/* Tech Stack Ticker */}
+        <motion.div
+          custom={4}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          style={{
+            display: 'flex',
+            gap: '1.5rem',
+            alignItems: 'center',
+            color: 'var(--text-muted)',
+            fontSize: '0.85rem',
+            fontFamily: 'var(--font-mono)',
+            marginTop: 'auto',
+            opacity: 0.7
+          }}
+        >
+          <span style={{ color: 'var(--accent)' }}>::</span>
+          <span>AI Engineer</span>
+          <span>•</span>
+          <span>Full Stack</span>
+          <span>•</span>
+          <span>Cloud Architect</span>
+          <span>•</span>
+          <span>Data Science</span>
+        </motion.div>
       </div>
 
       {/* RIGHT COLUMN: FANNED GALLERY */}

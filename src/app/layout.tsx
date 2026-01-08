@@ -73,6 +73,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: "1s-JkT0l5bTxsfMUAtng2Dh_i-iUNVrR1Vj4xVv0zDM",
+  },
 };
 
 export const viewport: Viewport = {
@@ -88,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         {children}
       </body>
